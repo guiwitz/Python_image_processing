@@ -1,3 +1,4 @@
+import os, sys
 import numpy as np
 import skimage.morphology as skm
 import skimage.filters as skf
@@ -7,6 +8,14 @@ from skimage.measure import label, regionprops
 from skimage.feature import match_template, peak_local_max
 
 
+def define_data_path():
+    if 'google.colab' in sys.modules:
+        datapath = '/content/gdrive/My Drive/'
+    else:
+        datapath = '../'
+        
+    return datapath
+    
 def detect_nuclei(image, size = 200, shape = 0.8):
     #median filter
     image_med = skf.rank.median(image,selem=np.ones((2,2)))
