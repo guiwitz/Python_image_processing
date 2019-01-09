@@ -8,6 +8,7 @@
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install python3.6-dev
+sudo apt-get install unzip
 
 #install TLJH
 curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo python3 - --admin guillaume_setup
@@ -18,31 +19,32 @@ sudo tljh-config add-item https.letsencrypt.domains yourhub.yourdomain.edu
 sudo tljh-config reload proxy
 
 #install the necessary packages
+export PATH=/opt/tljh/user/bin:${PATH}
 
 #to get jupyterlab extensions
-sudo -E -y conda install -c conda-forge nodejs
+sudo env "PATH=$PATH" conda install -y -c conda-forge nodejs
 
 #to get TOC
-sudo -E jupyter labextension install @jupyterlab/toc
+sudo env "PATH=$PATH" jupyter labextension install @jupyterlab/toc
 
 #install jupyter notebook extensions
-sudo -E -y conda install -c conda-forge jupyter_contrib_nbextensions
+sudo env "PATH=$PATH" conda install -y -c conda-forge jupyter_contrib_nbextensions
 
 #getting main libraries
-sudo -E -y conda install pip numpy pandas scikit-image matplotlib scipy
+sudo env "PATH=$PATH" conda install -y numpy pandas scikit-image matplotlib scipy
 
 #to get itk-widgets
-sudo -E -y conda install -c conda-forge itkwidgets
-sudo -E jupyter labextension install @jupyter-widgets/jupyterlab-manager itk-jupyter-widgets
+sudo env "PATH=$PATH" conda install -y -c conda-forge itkwidgets
+sudo env "PATH=$PATH" jupyter labextension install @jupyter-widgets/jupyterlab-manager itk-jupyter-widgets
 
 #install ipyvolume
-sudo -E pip install ipyvolume
-#sudo -E jupyter labextension install @jupyter-widgets/jupyterlab-manager
-sudo -E jupyter labextension install ipyvolume
-sudo -E jupyter labextension install jupyter-threejs
+sudo env "PATH=$PATH" pip install ipyvolume
+#sudo env "PATH=$PATH" jupyter labextension install @jupyter-widgets/jupyterlab-manager
+sudo env "PATH=$PATH" jupyter labextension install ipyvolume
+sudo env "PATH=$PATH" jupyter labextension install jupyter-threejs
 
 #install tensorflow
-sudo -E pip install tensorflow
+sudo env "PATH=$PATH" pip install tensorflow
 
 #install keras
-sudo -E pip install keras
+sudo env "PATH=$PATH" pip install keras
