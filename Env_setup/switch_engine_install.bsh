@@ -1,0 +1,48 @@
+#bash script to setup a JupyterHub for a Python Image processing lecture on a switch engine
+#using Ubuntu 18.04.
+#First recover the address of the server using the IP you used to connect e.g.:
+#host 86.119.41.105
+#and replace yourhub.yourdomain.edu on line 15 with it
+
+#update the machine state and install a missing python package
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python3.6-dev
+
+#install TLJH
+curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo python3 - --admin guillaume_setup
+
+sudo tljh-config set https.enabled true
+sudo tljh-config set https.letsencrypt.email guillaume.witz@math.unibe.ch
+sudo tljh-config add-item https.letsencrypt.domains yourhub.yourdomain.edu
+sudo tljh-config reload proxy
+
+#install the necessary packages
+
+#to get jupyterlab extensions
+sudo -E -y conda install -c conda-forge nodejs
+
+#to get TOC
+sudo -E jupyter labextension install @jupyterlab/toc
+
+#install jupyter notebook extensions
+sudo -E -y conda install -c conda-forge jupyter_contrib_nbextensions
+
+#getting main libraries
+sudo -E -y conda install pip numpy pandas scikit-image matplotlib scipy
+
+#to get itk-widgets
+sudo -E -y conda install -c conda-forge itkwidgets
+sudo -E jupyter labextension install @jupyter-widgets/jupyterlab-manager itk-jupyter-widgets
+
+#install ipyvolume
+sudo -E pip install ipyvolume
+#sudo -E jupyter labextension install @jupyter-widgets/jupyterlab-manager
+sudo -E jupyter labextension install ipyvolume
+sudo -E jupyter labextension install jupyter-threejs
+
+#install tensorflow
+sudo -E pip install tensorflow
+
+#install keras
+sudo -E pip install keras
