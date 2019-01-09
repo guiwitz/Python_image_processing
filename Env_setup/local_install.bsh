@@ -1,0 +1,29 @@
+#bash script to setup the environment necessary for the lecture
+#plase install miniconda for your system first
+
+conda create -n pyimageprocessing pip numpy pandas scikit-image matplotlib scipy jupyter jupyterlab
+source activate pyimageprocessing
+
+#to get jupyterlab extensions
+conda install -y -c conda-forge nodejs
+
+#to get TOC
+jupyter labextension install @jupyterlab/toc
+
+#install jupyter notebook extensions
+conda install -y -c conda-forge jupyter_contrib_nbextensions
+
+#to get itk-widgets
+conda install -y -c conda-forge itkwidgets
+jupyter labextension install @jupyter-widgets/jupyterlab-manager itk-jupyter-widgets
+
+#install ipyvolume
+pip install ipyvolume
+jupyter labextension install ipyvolume
+jupyter labextension install jupyter-threejs
+
+#install tensorflow
+pip install tensorflow
+
+#install keras
+pip install keras
