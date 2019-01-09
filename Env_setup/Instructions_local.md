@@ -1,8 +1,8 @@
 1. Install miniconda on your system following these instructions: https://conda.io/docs/user-guide/install/index.html
 2. Clone or download this repository: https://github.com/guiwitz/Python_image_processing
-3. cd (your location)/Python_image_processing/Env_setup
-4. chmod u+x local_install.bsh
-5. ./local_install.bsh
+3. cd (your location)/Python_image_processing/Env_setup 
+4. ./local_install.bsh
+5. only if above doesn't work : chmod u+x local_install.bsh
 6. source activate pyimageprocessing
 7. jupyter lab
 8. open the Data_setup_local notebook and execute all cells

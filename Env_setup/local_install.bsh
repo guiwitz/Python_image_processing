@@ -1,7 +1,7 @@
 #bash script to setup the environment necessary for the lecture
 #plase install miniconda for your system first
 
-conda create -n pyimageprocessing pip numpy pandas scikit-image matplotlib scipy jupyter jupyterlab
+conda create -y -n pyimageprocessing pip numpy pandas scikit-image matplotlib scipy jupyter jupyterlab
 source activate pyimageprocessing
 
 #to get jupyterlab extensions
