@@ -9,13 +9,15 @@
     
 3. Download the bash script from the github repository:
     
-    ```curl -O https://raw.githubusercontent.com/guiwitz/Python_image_processing/master/Env_setup/switch_engine_install.bsh
+    ```
+    curl -O https://raw.githubusercontent.com/guiwitz/Python_image_processing/master/Env_setup/switch_engine_install.bsh
     ```
     
     
 4. Check address using code below and copy it: 
 
-    ```host yourIPaddress
+    ```
+    host yourIPaddress
     ```
 
 
