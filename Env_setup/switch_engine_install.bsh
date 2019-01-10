@@ -11,10 +11,10 @@ sudo apt-get install python3.6-dev
 sudo apt-get install unzip
 
 #install TLJH
-curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo python3 - --admin guillaume_setup
+curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo python3 - --admin choose_admin_name
 
 sudo tljh-config set https.enabled true
-sudo tljh-config set https.letsencrypt.email guillaume.witz@math.unibe.ch
+sudo tljh-config set https.letsencrypt.email your.email.address
 sudo tljh-config add-item https.letsencrypt.domains yourhub.yourdomain.edu
 sudo tljh-config reload proxy
 
