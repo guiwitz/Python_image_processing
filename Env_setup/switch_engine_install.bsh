@@ -1,8 +1,8 @@
 #bash script to setup a JupyterHub for a Python Image processing lecture on a switch engine
 #using Ubuntu 18.04.
-#First recover the address of the server using the IP you used to connect e.g.:
-#host 86.119.41.105
-#and replace yourhub.yourdomain.edu on line 15 with it
+#Follow the instructions in Instructions_SwitchEngine.md to use this installation script.
+#You will have to edit line 14, 17 and 18
+
 
 #update the machine state and install a missing python package
 sudo apt-get update
