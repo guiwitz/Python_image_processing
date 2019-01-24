@@ -7,7 +7,7 @@ from skimage.measure import label, regionprops
 
 from skimage.feature import match_template, peak_local_max
 
-#
+#Define the path of leading to Data folder
 def define_data_path():
     if 'google.colab' in sys.modules:
         datapath = '/content/gdrive/My Drive/'
@@ -15,8 +15,29 @@ def define_data_path():
         datapath = '../'
         
     return datapath
+
+
     
 def detect_nuclei(image, size = 200, shape = 0.8):
+
+	"""Detect nuclei in image using binary operations
+    
+    Parameters
+    ----------
+    image : 2D numpy array
+        image to be segmented
+    size: number  
+        maximal nucleus size
+    shape: float
+        minimal nucleus eccentricity
+        
+    Returns
+    -------
+    newimage : 2D numpy array
+        mask of nuclei
+    """
+    
+    
     #median filter
     image_med = skf.rank.median(image,selem=np.ones((2,2)))
     #otsu thresholding
@@ -32,13 +53,25 @@ def detect_nuclei(image, size = 200, shape = 0.8):
     newimage = np.zeros(image.shape)
     #fill in using region coordinates
     for x in our_regions:
-        if (x.area>200):# and (x.eccentricity<0.8):
+        if (x.area>200):# and (x.eccentricity>shape):
             newimage[x.coords[:,0],x.coords[:,1]] = 1
             
     return newimage
 
 
 def create_disk_template(radius):
+	"""Create a disk image
+    
+    Parameters
+    ----------
+    radius : int
+        radius of disk
+        
+    Returns
+    -------
+    template : 2D numpy array
+        binary image of a disk
+    """
     
     template = np.zeros((2*radius+5,2*radius+5))
     center = [(template.shape[0]-1)/2,(template.shape[1]-1)/2]
@@ -48,19 +81,25 @@ def create_disk_template(radius):
     
     return template
 
-
-def create_disk_template(radius):
-    
-    template = np.zeros((2*radius+5,2*radius+5))
-    center = [(template.shape[0]-1)/2,(template.shape[1]-1)/2]
-    Y, X = np.mgrid[0:template.shape[0],0:template.shape[1]]
-    dist_from_center = np.sqrt((X - center[0])**2 + (Y-center[1])**2)
-    template[dist_from_center<=radius] = 1
-    
-    return template
 
 
 def detect_nuclei_template(image, template):
+	"""Detect nuclei in image using template matching
+    
+    Parameters
+    ----------
+    image : 2D numpy array
+        image to be segmented
+    template: 2D numpy array  
+        template for nucleus shape
+        
+    Returns
+    -------
+    masked_peaks : 2D numpy array
+        mask where each nucleus is represented by a single white pixel
+    otsu_mask : maks obtained using the Otsu threshold
+    """
+    
     matched = match_template(image=image, template=template, pad_input=True)
 
     local_max = peak_local_max(matched, min_distance=10,indices=False)
