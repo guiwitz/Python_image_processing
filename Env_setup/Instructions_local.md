@@ -1,15 +1,16 @@
 1. Install miniconda on your system following these instructions: https://conda.io/docs/user-guide/install/index.html
 2. Clone or download this repository: https://github.com/guiwitz/Python_image_processing
 3. cd (your location)/Python_image_processing/Env_setup 
-4. Exectute the install scritpt:
-    ```
-    ./local_install.bsh
-    ```
-5. Only if above doesn't work:
+4. Make the install script executable:
     ```
     chmod u+x local_install.bsh
     ```
-6. Activate the conda environement:
+5. Execute the install script:
+    ```
+    ./local_install.bsh
+    ```
+
+6. Activate the conda environment:
     ```
     source activate pyimageprocessing
     ```
@@ -22,7 +23,7 @@
 
 Now, whenever you want to use the course material:
 1. Open the Terminal
-2. Activate the conda environement:
+2. Activate the conda environment:
     ```
     source activate pyimageprocessing
     ```
