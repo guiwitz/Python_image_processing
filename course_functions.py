@@ -20,7 +20,7 @@ def define_data_path():
     
 def detect_nuclei(image, size = 200, shape = 0.8):
 
-	"""Detect nuclei in image using binary operations
+    """Detect nuclei in image using binary operations
     
     Parameters
     ----------
@@ -60,7 +60,8 @@ def detect_nuclei(image, size = 200, shape = 0.8):
 
 
 def create_disk_template(radius):
-	"""Create a disk image
+    
+    """Create a disk image
     
     Parameters
     ----------
@@ -84,7 +85,8 @@ def create_disk_template(radius):
 
 
 def detect_nuclei_template(image, template):
-	"""Detect nuclei in image using template matching
+
+    """Detect nuclei in image using template matching
     
     Parameters
     ----------
