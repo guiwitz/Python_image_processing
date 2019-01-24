@@ -7,7 +7,7 @@ from skimage.measure import label, regionprops
 
 from skimage.feature import match_template, peak_local_max
 
-
+#
 def define_data_path():
     if 'google.colab' in sys.modules:
         datapath = '/content/gdrive/My Drive/'
@@ -36,6 +36,17 @@ def detect_nuclei(image, size = 200, shape = 0.8):
             newimage[x.coords[:,0],x.coords[:,1]] = 1
             
     return newimage
+
+
+def create_disk_template(radius):
+    
+    template = np.zeros((2*radius+5,2*radius+5))
+    center = [(template.shape[0]-1)/2,(template.shape[1]-1)/2]
+    Y, X = np.mgrid[0:template.shape[0],0:template.shape[1]]
+    dist_from_center = np.sqrt((X - center[0])**2 + (Y-center[1])**2)
+    template[dist_from_center<=radius] = 1
+    
+    return template
 
 
 def create_disk_template(radius):

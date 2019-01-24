@@ -33,6 +33,15 @@ sudo env "PATH=$PATH" conda install -y -c conda-forge jupyter_contrib_nbextensio
 #getting main libraries
 sudo env "PATH=$PATH" conda install -y numpy pandas scikit-image matplotlib scipy
 
+#get trackpy
+sudo env "PATH=$PATH" conda install -y -c conda-forge trackpy
+
+#get scikit-learn
+sudo env "PATH=$PATH" conda install -y scikit-learn
+
+#install RISE
+sudo env "PATH=$PATH" conda install -y -c conda-forge rise
+
 #to get itk-widgets
 sudo env "PATH=$PATH" conda install -y -c conda-forge itkwidgets
 sudo env "PATH=$PATH" jupyter labextension install @jupyter-widgets/jupyterlab-manager itk-jupyter-widgets
