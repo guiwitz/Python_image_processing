@@ -8,4 +8,4 @@ Most of the examples datasets are biology microscopy images taken from open repo
 ## Installation
 One can install all necessary packages manually. However we provide some information to facilitate the installation of all parts (for UNIX machines) in the [Instructions_local.md](https://github.com/guiwitz/Python_image_processing/blob/master/Env_setup/Instructions_local.md) guide.
 
-The course is originally run using a JupyterHub based on [The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/) and installed on a (switchEngine)[https://engines.switch.ch]. We also give instructions to create such as JupyterHub in the [Instructions_SwitchEngine.md](https://github.com/guiwitz/Python_image_processing/blob/master/Env_setup/Instructions_SwitchEngine.md) guide.
+The course is originally run using a JupyterHub based on [The Littlest JupyterHub](https://tljh.jupyter.org/en/latest/) and installed on a [switchEngine](https://engines.switch.ch). We also give instructions to create such as JupyterHub in the [Instructions_SwitchEngine.md](https://github.com/guiwitz/Python_image_processing/blob/master/Env_setup/Instructions_SwitchEngine.md) guide.
