@@ -57,3 +57,17 @@ sudo env "PATH=$PATH" pip install tensorflow
 
 #install keras
 sudo env "PATH=$PATH" pip install keras
+
+#install tqdm
+sudo env "PATH=$PATH" pip install tqdm
+
+#update stuff for openCV
+sudo env "PATH=$PATH" apt update && apt install -y libsm6 libxext6
+
+#install openCV
+sudo env "PATH=$PATH" pip install opencv-python
+
+
+
+
+
